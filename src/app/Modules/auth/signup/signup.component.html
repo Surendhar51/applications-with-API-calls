@@ -1,0 +1,41 @@
+<ng-container>
+    <div class="centerdiv">
+        <div class="form-group">
+            <h1>
+                Register
+            </h1>
+            <form [formGroup]="signupForm" class="form-item" (ngSubmit)="Signup()" >
+                <div class="controls">
+                    <label>First Name :</label><br>
+                    <input class="input-feild" type="text" placeholder="Enter your First Name" formControlName="FirstName"><br>
+                    <small class="required" *ngIf="f['FirstName']?.errors?.required && f['FirstName'].dirty">*FirstName is required</small>
+                </div>
+                <div class="controls">
+                    <label>Last Name :</label><br>
+                    <input class="input-feild" type="text" placeholder="Enter your Last Name" formControlName="LastName"><br>
+                    <small class="required" *ngIf="f['LastName']?.errors?.required && f['LastName'].dirty">*LastName is required</small>
+                </div>
+                <div class="controls">
+                    <label>Email :</label><br>
+                    <input class="input-feild" type="text" placeholder="Enter your email" formControlName="Email"><br>
+                    <small class="required" *ngIf="f['Email']?.errors?.required && f['Email'].dirty">*Email is required</small>
+                    <small class="required" *ngIf="f['Email']?.errors?.email && f['Email'].dirty">*Enter valid email address</small>
+                </div>
+                <div class="controls">
+                    <label>Password :</label><br>
+                    <input class="input-feild" type="password" placeholder="Enter your password" formControlName="Password"><br>
+                    <small class="required" *ngIf="f['Password']?.errors?.required && f['Password'].dirty">*Password is required</small>
+                    <small class="required" *ngIf="f['Password']?.errors?.minlength && f['Password'].dirty">*Password should be 8 digits</small>
+                </div>
+                <div class="btn-group">
+                    <button type="submit" class="btn" [ngClass]="signupForm.invalid?'disabled':''">
+                        Register
+                    </button>
+                </div>
+                <div class="signup-class">
+                    Already have account? <a href="" class="signup-link" routerLink="/auth/login">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-container>

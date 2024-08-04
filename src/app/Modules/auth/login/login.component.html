@@ -1,0 +1,31 @@
+<ng-container>
+    <div class="centerdiv">
+        <div class="form-group">
+            <h1>
+                Login
+            </h1>
+            <form [formGroup]="loginForm" class="form-item" (ngSubmit)="Login()" >
+                <div class="controls">
+                    <label>Email :</label><br>
+                    <input class="input-feild" type="text" placeholder="Enter your email" formControlName="Email"><br>
+                    <small class="required" *ngIf="f['Email']?.errors?.required && f['Email'].dirty">*Email is required</small>
+                    <small class="required" *ngIf="f['Email']?.errors?.email && f['Email'].dirty">*Enter valid email address</small>
+                </div>
+                <div class="controls">
+                    <label>Password :</label><br>
+                    <input class="input-feild" type="password" placeholder="Enter your password" formControlName="Password"><br>
+                    <small class="required" *ngIf="f['Password']?.errors?.required && f['Password'].dirty">*Password is required</small>
+                    <small class="required" *ngIf="f['Password']?.errors?.minlength && f['Password'].dirty">*Password length should be 8 digit</small>
+                </div>
+                <div class="btn-group">
+                    <button [ngClass]="loginForm.invalid?'disabled':''" type="submit" class="btn">
+                        Login
+                    </button>
+                </div>
+                <div class="signup-class">
+                    Not register yet? <a href="" class="signup-link" routerLink="/auth/signup">signup</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-container>
