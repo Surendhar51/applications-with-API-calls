@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { empty } from 'rxjs';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient,private _toastr:ToastrService,private _router:Router) { }
 
   private baseApi = 'https://localhost:7259/api/';
 
@@ -25,6 +26,15 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
   getToken(){
-    localStorage.getItem('token');
+    return localStorage.getItem('token');
+  }
+  SignOut(){
+    localStorage.clear();
+    this._toastr.info('User logged out successfully');
+    this._router.navigateByUrl("/auth/login");
+  }
+
+  getUser() {
+    return this._http.get(this.baseApi+"User/GetAllUsers");
   }
 }

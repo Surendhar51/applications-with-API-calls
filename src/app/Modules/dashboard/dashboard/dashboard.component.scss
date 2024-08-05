@@ -1,0 +1,25 @@
+.logout{
+    background: aquamarine;
+    color: black;
+    border-radius: 20px;
+    border-color: none;
+}
+.dashboard{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to top,#f8dcdc 50%,#504040 90%) no-repeat;
+}
+.signout-div{
+    margin-right: 200px;
+}
+.user-list{
+    width: 50%;
+    padding: 20px;
+    margin-top: 20px;
+}
+.bordered{
+    border: 1px solid;
+}
+.table-head{
+    padding: 20px;
+}
