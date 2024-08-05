@@ -1,1 +1,17 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+    <div class="signout-div">
+        <button class="logout" (click)="signout()">Sign Out</button>
+    </div>
+
+    <div class="user-list">
+        <ul class="bordered">
+            <th class="table-head">User Name</th>
+            <th class="table-head">User Email</th>
+        </ul>
+        <ul class="bordered" *ngFor="let users of allUsers">
+            <td class="table-head">{{users.name}}</td>
+            <td class="table-head">{{users.emailAddress}}</td>
+        </ul>
+
+    </div>
+</div>
